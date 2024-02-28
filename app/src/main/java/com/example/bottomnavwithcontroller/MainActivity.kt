@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+@Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -56,24 +56,7 @@ fun App() {
     }
 }
 
-@Composable
-fun HomeScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.teal_700))
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "Home Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp
-        )
-    }
-}
+
 @Composable
 fun AddPostScreen() {
     Column(
@@ -134,5 +117,5 @@ fun NetworkScreen() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    HomeScreen()
+//    HomeScreen()
 }

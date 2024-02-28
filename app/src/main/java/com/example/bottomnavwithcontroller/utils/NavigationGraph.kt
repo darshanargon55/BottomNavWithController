@@ -5,9 +5,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.bottomnavwithcontroller.AddPostScreen
-import com.example.bottomnavwithcontroller.HomeScreen
 import com.example.bottomnavwithcontroller.NetworkScreen
 import com.example.bottomnavwithcontroller.NotificationScreen
+import com.example.bottomnavwithcontroller.activity.HomeScreen
 
 @Composable
 fun NavigationGraph(navController: NavHostController){
