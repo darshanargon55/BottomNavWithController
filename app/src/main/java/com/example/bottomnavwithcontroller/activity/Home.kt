@@ -5,10 +5,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -80,23 +83,26 @@ fun TopRow() {
 
 @Composable
 fun FlowerCard(flower: Product,modifier: Modifier) {
-    Card(modifier) {
-        Column(
-            modifier = Modifier
-                .size(150.dp)
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceBetween
-        ) {
-            Image(
-                painter = painterResource(id = flower.image),
-                contentDescription = ""  ,
+    Card(modifier = modifier) {
+        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxSize()) {
+            Column(
                 modifier = Modifier
-                    .clip(CircleShape)
-                    .size(70.dp),
-                contentScale = ContentScale.Crop
-            )
-            Text(text = flower.name, fontSize = 15.sp)
+                    .size(150.dp)
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Image(
+                    painter = painterResource(id = flower.image),
+                    contentDescription = ""  ,
+                    modifier = Modifier
+                        .clip(CircleShape)
+                        .size(70.dp),
+                    contentScale = ContentScale.Crop
+                )
+                Text(text = flower.name, fontSize = 15.sp)
+            }
         }
     }
 }
