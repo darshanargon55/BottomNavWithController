@@ -94,26 +94,6 @@ fun NotificationScreen() {
     }
 }
 
-
-@Composable
-fun NetworkScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.teal_700))
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "My Network Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp
-        )
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
