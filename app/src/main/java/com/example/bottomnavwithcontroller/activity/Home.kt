@@ -3,15 +3,11 @@ package com.example.bottomnavwithcontroller.activity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -21,17 +17,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.bottomnavwithcontroller.R
 import com.example.bottomnavwithcontroller.model.Product
+import net.engawapg.lib.zoomable.rememberZoomState
+import net.engawapg.lib.zoomable.zoomable
 
 val fullList = listOf(
     Product(
@@ -83,11 +78,14 @@ fun TopRow() {
 
 @Composable
 fun FlowerCard(flower: Product,modifier: Modifier) {
+    val zoomState = rememberZoomState(
+        maxScale = 5f
+    )
     Card(modifier = modifier) {
-        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxSize()) {
+        Row(horizontalArrangement = Arrangement.Center) {
             Column(
                 modifier = Modifier
-                    .size(150.dp)
+                    .size(200.dp)
                     .fillMaxSize()
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -98,7 +96,8 @@ fun FlowerCard(flower: Product,modifier: Modifier) {
                     contentDescription = ""  ,
                     modifier = Modifier
                         .clip(CircleShape)
-                        .size(70.dp),
+                        .size(100.dp)
+                        .zoomable(zoomState),
                     contentScale = ContentScale.Crop
                 )
                 Text(text = flower.name, fontSize = 15.sp)
